@@ -1396,8 +1396,8 @@
             doc.setFont('helvetica', 'normal');
             doc.setFontSize(11);
             doc.setTextColor(80, 80, 80);
-            doc.text(`Acertos: ${totalCorrectAnswers} de 12 questões`, pageWidth / 2, 176, { align: 'center' });
-            doc.text(`Data de Conclusão: ${dataConclusao}`, pageWidth / 2, 186, { align: 'center' });
+            doc.text(`Acertos: ${totalCorrectAnswers} de 12 questões`, pageWidth / 2, 188, { align: 'center' });
+            doc.text(`Data de Conclusão: ${dataConclusao}`, pageWidth / 2, 192, { align: 'center' });
             
             // ===== ASSINATURA =====
             const assinaturaY = 170;
@@ -1408,12 +1408,12 @@
             doc.setFont('helvetica', 'bold');
             doc.setFontSize(10);
             doc.setTextColor(241, 90, 36);
-            doc.text('Adriana do Nascimento Lima Ferreira', pageWidth / 2, assinaturaY + 7, { align: 'center' });
+            doc.text('Adriana do Nascimento Lima Ferreira', pageWidth / 2, assinaturaY + 4, { align: 'center' });
             
             doc.setFont('helvetica', 'normal');
             doc.setFontSize(9);
             doc.setTextColor(80, 80, 80);
-            doc.text('Monitora de Qualidade', pageWidth / 2, assinaturaY + 12, { align: 'center' });
+            doc.text('Monitora de Qualidade', pageWidth / 2, assinaturaY + 8, { align: 'center' });
             
             // ===== SALVAR =====
             doc.save(`Certificado_${currentCollaborator.replace(/\s/g, '_')}.pdf`);

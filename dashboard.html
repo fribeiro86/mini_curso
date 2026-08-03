@@ -32,7 +32,6 @@
             -webkit-tap-highlight-color: transparent;
         }
 
-        /* ===== CONTAINER PRINCIPAL ===== */
         .dashboard-container {
             max-width: 1200px;
             margin: 0 auto;
@@ -42,7 +41,6 @@
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
         }
 
-        /* ===== CABEÇALHO ===== */
         .dashboard-header {
             display: flex;
             flex-direction: column;
@@ -124,7 +122,6 @@
             transform: scale(0.95);
         }
 
-        /* ===== CARDS DE ESTATÍSTICAS ===== */
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -154,7 +151,6 @@
             line-height: 1.2;
         }
 
-        /* ===== ABAS ===== */
         .tabs {
             display: flex;
             gap: 4px;
@@ -213,7 +209,6 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* ===== TABELAS - MOBILE FIRST ===== */
         .table-container {
             overflow-x: auto;
             background: #fafafa;
@@ -258,7 +253,6 @@
             background: #fff5f2;
         }
 
-        /* ===== BADGES ===== */
         .badge-success {
             background: #28a745;
             color: white;
@@ -347,7 +341,6 @@
             white-space: nowrap;
         }
 
-        /* ===== BOTÕES ===== */
         .btn-primary {
             background: #f15a24;
             color: white;
@@ -410,30 +403,6 @@
             flex-wrap: wrap;
         }
 
-        .btn-report {
-            background: #dc3545;
-            color: white;
-            border: none;
-            padding: 10px 14px;
-            border-radius: 8px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
-            width: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 6px;
-            min-height: 44px;
-            margin-top: 10px;
-        }
-
-        .btn-report:active {
-            transform: scale(0.97);
-        }
-
-        /* ===== FORMULÁRIO DE TOKEN ===== */
         .token-form {
             background: #f9f9f9;
             padding: 14px;
@@ -493,7 +462,6 @@
             letter-spacing: 0.5px;
         }
 
-        /* ===== ALERTAS ===== */
         .alert {
             padding: 8px 12px;
             border-radius: 6px;
@@ -530,7 +498,6 @@
             border: 1px solid #bee5eb;
         }
 
-        /* ===== LOADER ===== */
         .loader {
             display: none;
             text-align: center;
@@ -552,7 +519,6 @@
             100% { transform: rotate(360deg); }
         }
 
-        /* ===== MODAL ===== */
         .modal-overlay {
             display: none;
             position: fixed;
@@ -623,302 +589,87 @@
             font-size: 0.85rem;
         }
 
-        /* ===== RESPONSIVIDADE MOBILE FIRST ===== */
-
-        /* Smartphones pequenos */
         @media (max-width: 380px) {
-            body {
-                padding: 4px;
-            }
-
-            .dashboard-container {
-                padding: 8px;
-                border-radius: 8px;
-            }
-
-            .stats-grid {
-                gap: 4px;
-            }
-
-            .stat-card {
-                padding: 6px 4px;
-            }
-
-            .stat-card .number {
-                font-size: 1rem;
-            }
-
-            .stat-card .label {
-                font-size: 0.5rem;
-            }
-
-            .dashboard-header h1 {
-                font-size: 0.9rem;
-            }
-
-            .dashboard-header .subtitle {
-                font-size: 0.6rem;
-            }
-
-            .tab-btn {
-                font-size: 0.6rem;
-                padding: 6px 8px;
-                min-height: 30px;
-            }
-
-            table {
-                font-size: 0.55rem;
-                min-width: 380px;
-            }
-
-            th, td {
-                padding: 4px 6px;
-            }
-
-            .btn-sm {
-                font-size: 0.5rem;
-                padding: 3px 6px;
-                min-height: 24px;
-            }
-
-            .token-form {
-                padding: 10px;
-            }
-
-            .token-form h3 {
-                font-size: 0.8rem;
-            }
-
-            .btn-primary {
-                font-size: 0.75rem;
-                padding: 8px 12px;
-                min-height: 38px;
-            }
-
-            .modal {
-                padding: 12px;
-            }
+            body { padding: 4px; }
+            .dashboard-container { padding: 8px; border-radius: 8px; }
+            .stats-grid { gap: 4px; }
+            .stat-card { padding: 6px 4px; }
+            .stat-card .number { font-size: 1rem; }
+            .stat-card .label { font-size: 0.5rem; }
+            .dashboard-header h1 { font-size: 0.9rem; }
+            .dashboard-header .subtitle { font-size: 0.6rem; }
+            .tab-btn { font-size: 0.6rem; padding: 6px 8px; min-height: 30px; }
+            table { font-size: 0.55rem; min-width: 380px; }
+            th, td { padding: 4px 6px; }
+            .btn-sm { font-size: 0.5rem; padding: 3px 6px; min-height: 24px; }
+            .token-form { padding: 10px; }
+            .token-form h3 { font-size: 0.8rem; }
+            .btn-primary { font-size: 0.75rem; padding: 8px 12px; min-height: 38px; }
+            .modal { padding: 12px; }
         }
 
-        /* Smartphones médios */
         @media (min-width: 381px) and (max-width: 480px) {
-            .stats-grid {
-                gap: 6px;
-            }
-
-            .stat-card {
-                padding: 8px 6px;
-            }
-
-            .stat-card .number {
-                font-size: 1.1rem;
-            }
-
-            .stat-card .label {
-                font-size: 0.55rem;
-            }
-
-            table {
-                min-width: 420px;
-            }
+            .stats-grid { gap: 6px; }
+            .stat-card { padding: 8px 6px; }
+            .stat-card .number { font-size: 1.1rem; }
+            .stat-card .label { font-size: 0.55rem; }
+            table { min-width: 420px; }
         }
 
-        /* Smartphones grandes e tablets pequenos */
         @media (min-width: 481px) and (max-width: 768px) {
-            .stats-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 10px;
-            }
-
-            .stat-card .number {
-                font-size: 1.5rem;
-            }
-
-            .stat-card .label {
-                font-size: 0.7rem;
-            }
-
-            .dashboard-header h1 {
-                font-size: 1.3rem;
-            }
-
-            table {
-                font-size: 0.75rem;
-                min-width: auto;
-            }
-
-            .token-form {
-                padding: 18px;
-            }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+            .stat-card .number { font-size: 1.5rem; }
+            .stat-card .label { font-size: 0.7rem; }
+            .dashboard-header h1 { font-size: 1.3rem; }
+            table { font-size: 0.75rem; min-width: auto; }
+            .token-form { padding: 18px; }
         }
 
-        /* Tablets e telas médias */
         @media (min-width: 769px) {
-            body {
-                padding: 16px;
-            }
-
-            .dashboard-container {
-                padding: 24px;
-                border-radius: 16px;
-            }
-
-            .stats-grid {
-                grid-template-columns: repeat(4, 1fr);
-                gap: 16px;
-            }
-
-            .stat-card {
-                padding: 16px 14px;
-            }
-
-            .stat-card .number {
-                font-size: 2rem;
-            }
-
-            .stat-card .label {
-                font-size: 0.8rem;
-            }
-
-            .dashboard-header h1 {
-                font-size: 1.6rem;
-            }
-
-            .dashboard-header .subtitle {
-                font-size: 0.85rem;
-            }
-
-            .btn-atualizar {
-                font-size: 0.85rem;
-                padding: 8px 20px;
-                min-height: 40px;
-            }
-
-            .btn-pdf-report {
-                font-size: 0.85rem;
-                padding: 8px 20px;
-                min-height: 40px;
-            }
-
-            table {
-                font-size: 0.85rem;
-                min-width: auto;
-            }
-
-            th, td {
-                padding: 12px 16px;
-            }
-
-            .token-form {
-                padding: 24px;
-                max-width: 500px;
-            }
-
-            .btn-primary {
-                width: auto;
-                padding: 10px 24px;
-                min-height: 44px;
-            }
-
-            .btn-report {
-                width: auto;
-                padding: 10px 24px;
-                min-height: 44px;
-            }
-
-            .tab-btn {
-                font-size: 0.9rem;
-                padding: 10px 20px;
-                min-height: 44px;
-            }
-
-            .btn-sm:hover {
-                opacity: 0.85;
-            }
-
-            .btn-atualizar:hover {
-                background: #d44b1b;
-            }
-
-            .btn-pdf-report:hover {
-                background: #c82333;
-            }
-
-            .tab-btn:hover {
-                background: #f0f0f0;
-                color: #f15a24;
-            }
-
-            .modal {
-                padding: 24px;
-            }
+            body { padding: 16px; }
+            .dashboard-container { padding: 24px; border-radius: 16px; }
+            .stats-grid { grid-template-columns: repeat(4, 1fr); gap: 16px; }
+            .stat-card { padding: 16px 14px; }
+            .stat-card .number { font-size: 2rem; }
+            .stat-card .label { font-size: 0.8rem; }
+            .dashboard-header h1 { font-size: 1.6rem; }
+            .dashboard-header .subtitle { font-size: 0.85rem; }
+            .btn-atualizar { font-size: 0.85rem; padding: 8px 20px; min-height: 40px; }
+            .btn-pdf-report { font-size: 0.85rem; padding: 8px 20px; min-height: 40px; }
+            table { font-size: 0.85rem; min-width: auto; }
+            th, td { padding: 12px 16px; }
+            .token-form { padding: 24px; max-width: 500px; }
+            .btn-primary { width: auto; padding: 10px 24px; min-height: 44px; }
+            .tab-btn { font-size: 0.9rem; padding: 10px 20px; min-height: 44px; }
+            .btn-sm:hover { opacity: 0.85; }
+            .btn-atualizar:hover { background: #d44b1b; }
+            .btn-pdf-report:hover { background: #c82333; }
+            .tab-btn:hover { background: #f0f0f0; color: #f15a24; }
+            .modal { padding: 24px; }
         }
 
-        /* Desktop */
         @media (min-width: 1024px) {
-            .dashboard-container {
-                padding: 32px;
-                border-radius: 20px;
-            }
-
-            .dashboard-header {
-                flex-direction: row;
-                justify-content: space-between;
-                align-items: center;
-            }
-
-            .dashboard-header h1 {
-                font-size: 1.8rem;
-            }
-
-            .stats-grid {
-                gap: 20px;
-            }
-
-            .stat-card {
-                padding: 20px;
-            }
-
-            .stat-card .number {
-                font-size: 2.2rem;
-            }
-
-            .token-form {
-                max-width: 500px;
-            }
+            .dashboard-container { padding: 32px; border-radius: 20px; }
+            .dashboard-header { flex-direction: row; justify-content: space-between; align-items: center; }
+            .dashboard-header h1 { font-size: 1.8rem; }
+            .stats-grid { gap: 20px; }
+            .stat-card { padding: 20px; }
+            .stat-card .number { font-size: 2.2rem; }
+            .token-form { max-width: 500px; }
         }
 
-        /* ===== AJUSTES PARA TOUCH ===== */
         @media (hover: none) {
-            .btn-sm:hover {
-                opacity: 1;
-            }
-            .tab-btn:hover {
-                background: none;
-                color: #666;
-            }
-            .tab-btn.active:hover {
-                background: #f15a24;
-                color: white;
-            }
-            .btn-atualizar:hover {
-                background: #f15a24;
-            }
-            .btn-pdf-report:hover {
-                background: #dc3545;
-            }
+            .btn-sm:hover { opacity: 1; }
+            .tab-btn:hover { background: none; color: #666; }
+            .tab-btn.active:hover { background: #f15a24; color: white; }
+            .btn-atualizar:hover { background: #f15a24; }
+            .btn-pdf-report:hover { background: #dc3545; }
         }
 
-        /* ===== ACESSIBILIDADE ===== */
         @media (prefers-reduced-motion: reduce) {
-            * {
-                animation-duration: 0.01ms !important;
-                animation-iteration-count: 1 !important;
-                transition-duration: 0.01ms !important;
-            }
+            * { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
         }
 
-        /* ===== AJUSTE PARA NOTCH ===== */
         @supports (padding: max(0px)) {
             body {
                 padding-left: max(8px, env(safe-area-inset-left));
@@ -928,7 +679,6 @@
             }
         }
 
-        /* ===== UTILITÁRIOS ===== */
         code {
             background: #f0f0f0;
             padding: 2px 4px;
@@ -937,50 +687,21 @@
             word-break: break-all;
         }
 
-        .text-center {
-            text-align: center;
-        }
+        .text-center { text-align: center; }
+        .text-muted { color: #999; }
+        .mt-1 { margin-top: 8px; }
+        .mb-1 { margin-bottom: 8px; }
+        .header-actions { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; }
 
-        .text-muted {
-            color: #999;
-        }
-
-        .mt-1 {
-            margin-top: 8px;
-        }
-
-        .mb-1 {
-            margin-bottom: 8px;
-        }
-
-        .header-actions {
-            display: flex;
-            gap: 6px;
-            flex-wrap: wrap;
-            align-items: center;
-        }
-
-        /* ===== SCROLLBAR PERSONALIZADA ===== */
-        .table-container::-webkit-scrollbar {
-            height: 4px;
-        }
-
-        .table-container::-webkit-scrollbar-track {
-            background: #f1f1f1;
-            border-radius: 4px;
-        }
-
-        .table-container::-webkit-scrollbar-thumb {
-            background: #f15a24;
-            border-radius: 4px;
-        }
+        .table-container::-webkit-scrollbar { height: 4px; }
+        .table-container::-webkit-scrollbar-track { background: #f1f1f1; border-radius: 4px; }
+        .table-container::-webkit-scrollbar-thumb { background: #f15a24; border-radius: 4px; }
     </style>
 </head>
 <body>
 
     <div class="dashboard-container">
         
-        <!-- ===== CABEÇALHO ===== -->
         <div class="dashboard-header">
             <div class="dashboard-header-top">
                 <h1>
@@ -1001,10 +722,8 @@
             <div class="subtitle">Gerenciamento do Treinamento de Segurança Operacional GOL</div>
         </div>
 
-        <!-- ===== ALERTAS ===== -->
         <div id="alert" class="alert"></div>
 
-        <!-- ===== STATS ===== -->
         <div class="stats-grid" id="stats-grid">
             <div class="stat-card">
                 <div class="number" id="total-colaboradores">0</div>
@@ -1028,7 +747,6 @@
             </div>
         </div>
 
-        <!-- ===== ABAS ===== -->
         <div class="tabs" id="tabs-container">
             <button class="tab-btn active" onclick="trocarAba('certificados', this)">
                 <i class="fas fa-certificate"></i> Certificados
@@ -1041,13 +759,11 @@
             </button>
         </div>
 
-        <!-- ===== LOADER ===== -->
         <div class="loader" id="loader">
             <i class="fas fa-spinner"></i>
             <p style="margin-top: 6px; color: #666; font-size: 0.8rem;">Carregando dados...</p>
         </div>
 
-        <!-- ===== ABA: CERTIFICADOS ===== -->
         <div class="tab-content active" id="tab-certificados">
             <div style="display: flex; justify-content: flex-end; margin-bottom: 10px;">
                 <button class="btn-sm btn-danger" onclick="gerarRelatorioPDF()" style="padding: 6px 12px; font-size: 0.75rem;">
@@ -1077,7 +793,6 @@
             </div>
         </div>
 
-        <!-- ===== ABA: GERAR TOKEN ===== -->
         <div class="tab-content" id="tab-tokens">
             <div class="token-form">
                 <h3><i class="fas fa-user-plus"></i> Cadastrar Colaborador</h3>
@@ -1130,7 +845,6 @@
             </div>
         </div>
 
-        <!-- ===== ABA: COLABORADORES ===== -->
         <div class="tab-content" id="tab-colaboradores">
             <div class="table-container">
                 <table>
@@ -1158,7 +872,6 @@
 
     </div>
 
-    <!-- ===== MODAL DE DETALHES ===== -->
     <div class="modal-overlay" id="modal-detalhes">
         <div class="modal">
             <div class="modal-header">
@@ -1179,32 +892,81 @@
             supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
         }
 
-        // Variável para armazenar os dados dos colaboradores com certificado
-        let dadosRelatorio = [];
-        let dadosCompletos = [];
+        // ================= FUNÇÕES DE FUSO HORÁRIO =================
+        
+        function converterParaBrasilia(dataUTC) {
+            if (!dataUTC) return null;
+            const data = new Date(dataUTC);
+            data.setHours(data.getHours() - 3);
+            return data;
+        }
 
-        // ================= FUNÇÃO PARA CALCULAR TEMPO EM DIAS =================
+        function formatarDataBrasilia(dataUTC, formato = 'completo') {
+            if (!dataUTC) return 'N/A';
+            
+            const dataBr = converterParaBrasilia(dataUTC);
+            
+            if (formato === 'data') {
+                return dataBr.toLocaleDateString('pt-BR', {
+                    day: '2-digit',
+                    month: '2-digit',
+                    year: 'numeric'
+                });
+            } else if (formato === 'completo') {
+                return dataBr.toLocaleString('pt-BR', {
+                    day: '2-digit',
+                    month: '2-digit',
+                    year: 'numeric',
+                    hour: '2-digit',
+                    minute: '2-digit'
+                });
+            } else if (formato === 'hora') {
+                return dataBr.toLocaleTimeString('pt-BR', {
+                    hour: '2-digit',
+                    minute: '2-digit'
+                });
+            }
+            return dataBr.toLocaleString('pt-BR');
+        }
+
+        function getDataBrasiliaAtual() {
+            const now = new Date();
+            const brasiliaOffset = -3 * 60;
+            const utc = now.getTime() + (now.getTimezoneOffset() * 60000);
+            return new Date(utc + (brasiliaOffset * 60000));
+        }
+
+        // ================= FUNÇÃO PARA CALCULAR TEMPO (CORRIGIDA) =================
 
         function calcularTempoConclusao(dataEmissao, dataConclusao) {
             if (!dataEmissao || !dataConclusao) return null;
             
-            const inicio = new Date(dataEmissao);
-            const fim = new Date(dataConclusao);
+            const inicio = converterParaBrasilia(dataEmissao);
+            const fim = converterParaBrasilia(dataConclusao);
+            
+            if (!inicio || !fim) return null;
+            
             const diffMs = fim - inicio;
             
+            // Se a data de conclusão for anterior à emissão, retorna null
             if (diffMs < 0) return null;
             
             // Calcular dias completos
             const diffDias = Math.floor(diffMs / (1000 * 60 * 60 * 24));
             
-            // Se for menos de 1 dia, mostrar em horas
+            // Se for menos de 1 dia, calcular horas/minutos
             if (diffDias === 0) {
                 const diffHoras = Math.floor(diffMs / (1000 * 60 * 60));
-                if (diffHoras === 0) {
+                if (diffHoras > 0) {
+                    return `${diffHoras}h`;  // Mostra em horas
+                } else {
                     const diffMin = Math.floor(diffMs / (1000 * 60));
-                    return `${diffMin}min`;
+                    if (diffMin > 0) {
+                        return `${diffMin}min`;  // Mostra em minutos
+                    } else {
+                        return 'Menos de 1 minuto';  // Menos de 1 minuto
+                    }
                 }
-                return `${diffHoras}h`;
             }
             
             return `${diffDias} dias`;
@@ -1213,14 +975,16 @@
         function getBadgeTempo(tempoStr) {
             if (!tempoStr) return '<span class="badge-pending">N/A</span>';
             
-            // Extrair número de dias
             let dias = 0;
+            let tempoDisplay = tempoStr;
+            
+            // Extrair número de dias
             if (tempoStr.includes('dias')) {
                 dias = parseInt(tempoStr);
-            } else if (tempoStr.includes('h')) {
+            } else if (tempoStr.includes('h') || tempoStr.includes('min') || tempoStr.includes('Menos')) {
+                // Menos de 1 dia - classifica como Rápido
                 dias = 0;
-            } else if (tempoStr.includes('min')) {
-                dias = 0;
+                tempoDisplay = tempoStr;
             }
             
             // Classificação baseada em dias
@@ -1233,24 +997,26 @@
             } else if (dias >= 9) {
                 return `<span class="badge-lento">🐢 Demorado (${tempoStr})</span>`;
             } else {
+                // Menos de 1 dia (horas, minutos) - Rápido
                 return `<span class="badge-rapido">⚡ Rápido (${tempoStr})</span>`;
             }
         }
 
+        // Variáveis para armazenar os dados
+        let dadosRelatorio = [];
+        let dadosCompletos = [];
+
         // ================= FUNÇÕES PRINCIPAIS =================
 
-        // Carregar todos os dados
         async function carregarDados() {
             mostrarLoader(true);
             fecharAlerta();
 
             try {
-                // Buscar colaboradores
                 const { data: colaboradoresData, error: colaboradoresError } = await supabaseClient
                     .from('colaboradores_tokens')
                     .select('*');
 
-                // Buscar resultados
                 const { data: resultadosData, error: resultadosError } = await supabaseClient
                     .from('resultados_treinamento')
                     .select('*')
@@ -1258,10 +1024,7 @@
 
                 if (colaboradoresError) {
                     if (colaboradoresError.message.includes('does not exist')) {
-                        mostrarAlerta(
-                            'A tabela "colaboradores_tokens" não existe. Acesse a aba "Config" para criar a tabela.',
-                            'error'
-                        );
+                        mostrarAlerta('A tabela "colaboradores_tokens" não existe.', 'error');
                     } else {
                         mostrarAlerta('Erro ao carregar colaboradores: ' + colaboradoresError.message, 'error');
                     }
@@ -1269,10 +1032,7 @@
 
                 if (resultadosError) {
                     if (resultadosError.message.includes('does not exist')) {
-                        mostrarAlerta(
-                            'A tabela "resultados_treinamento" não existe. Acesse a aba "Config" para criar a tabela.',
-                            'error'
-                        );
+                        mostrarAlerta('A tabela "resultados_treinamento" não existe.', 'error');
                     } else {
                         mostrarAlerta('Erro ao carregar resultados: ' + resultadosError.message, 'error');
                     }
@@ -1286,7 +1046,6 @@
                 const dadosColaboradores = colaboradoresData || [];
                 const dadosResultados = resultadosData || [];
 
-                // Combinar dados para ter o tempo de conclusão
                 dadosCompletos = dadosColaboradores.map(colab => {
                     const resultado = dadosResultados.find(r => r.nome === colab.nome && r.certificado === 'Sim');
                     const tempo = resultado && colab.created_at ? 
@@ -1300,7 +1059,6 @@
                     };
                 });
 
-                // Filtrar apenas quem tem certificado para o relatório
                 dadosRelatorio = dadosCompletos.filter(d => d.resultado && d.resultado.certificado === 'Sim');
 
                 atualizarStats(dadosCompletos);
@@ -1315,21 +1073,18 @@
             }
         }
 
-        // Atualizar estatísticas
         function atualizarStats(dados) {
             const totalColaboradores = dados.length;
             const certificados = dados.filter(d => d.resultado && d.resultado.certificado === 'Sim');
             const totalCertificados = certificados.length;
             const totalPendentes = totalColaboradores - totalCertificados;
             
-            // Calcular média de acertos
             let media = 0;
             if (certificados.length > 0) {
                 const soma = certificados.reduce((acc, d) => acc + d.resultado.acertos, 0);
                 media = Math.round((soma / (certificados.length * 12)) * 100);
             }
 
-            // Calcular tempo médio de conclusão em dias
             const tempos = certificados
                 .map(d => d.tempoConclusao)
                 .filter(t => t !== null && t.includes('dias'));
@@ -1354,7 +1109,6 @@
             document.getElementById('tempo-medio').textContent = tempoMedio;
         }
 
-        // Atualizar tabela de certificados
         function atualizarTabelaCertificados(dados) {
             const tbody = document.getElementById('certificados-tbody');
             const certificados = dados.filter(d => d.resultado && d.resultado.certificado === 'Sim');
@@ -1366,7 +1120,6 @@
                 return;
             }
 
-            // Ordenar por tempo (mais rápido primeiro)
             certificados.sort((a, b) => {
                 const tA = a.tempoConclusao ? parseInt(a.tempoConclusao) || 9999 : 9999;
                 const tB = b.tempoConclusao ? parseInt(b.tempoConclusao) || 9999 : 9999;
@@ -1375,12 +1128,13 @@
 
             tbody.innerHTML = certificados.map(d => {
                 const tempoBadge = getBadgeTempo(d.tempoConclusao);
+                const dataFormatada = formatarDataBrasilia(d.resultado.data_realizada, 'data');
                 return `
                     <tr>
                         <td><strong>${d.nome}</strong></td>
                         <td><span class="badge-success">${d.resultado.acertos}/12</span></td>
                         <td>${tempoBadge}</td>
-                        <td style="font-size: 0.6rem;">${new Date(d.resultado.data_realizada).toLocaleDateString('pt-BR', { day: '2-digit', month: '2-digit', year: 'numeric' })}</td>
+                        <td style="font-size: 0.6rem;">${dataFormatada}</td>
                         <td><span class="badge-success"><i class="fas fa-check"></i> Concluído</span></td>
                         <td>
                             <button class="btn-sm btn-success" onclick="verDetalhes('${d.nome}')">
@@ -1392,7 +1146,6 @@
             }).join('');
         }
 
-        // Atualizar tabela de colaboradores (com tokens)
         function atualizarTabelaColaboradores(colaboradores) {
             const tbody = document.getElementById('colaboradores-tbody');
 
@@ -1404,15 +1157,7 @@
             }
 
             tbody.innerHTML = colaboradores.map(c => {
-                const dataEmissao = c.created_at 
-                    ? new Date(c.created_at).toLocaleString('pt-BR', {
-                        day: '2-digit',
-                        month: '2-digit',
-                        year: 'numeric',
-                        hour: '2-digit',
-                        minute: '2-digit'
-                    })
-                    : 'N/A';
+                const dataEmissao = c.created_at ? formatarDataBrasilia(c.created_at, 'completo') : 'N/A';
                 
                 return `
                     <tr>
@@ -1429,7 +1174,6 @@
             }).join('');
         }
 
-        // Atualizar tabela de todos os colaboradores
         function atualizarTabelaTodosColaboradores(dados) {
             const tbody = document.getElementById('todos-colaboradores-tbody');
 
@@ -1440,7 +1184,6 @@
                 return;
             }
 
-            // Ordenar por tempo (mais rápido primeiro) para quem já concluiu
             dados.sort((a, b) => {
                 if (a.resultado && b.resultado) {
                     const tA = a.tempoConclusao ? parseInt(a.tempoConclusao) || 9999 : 9999;
@@ -1457,20 +1200,8 @@
                     ? `<span class="badge-success"><i class="fas fa-check"></i> Certificado</span>`
                     : `<span class="badge-pending"><i class="fas fa-clock"></i> Pendente</span>`;
                 
-                const dataCurso = d.resultado 
-                    ? new Date(d.resultado.data_realizada).toLocaleDateString('pt-BR', { day: '2-digit', month: '2-digit', year: 'numeric' })
-                    : '-';
-                
-                const dataEmissao = d.created_at 
-                    ? new Date(d.created_at).toLocaleString('pt-BR', {
-                        day: '2-digit',
-                        month: '2-digit',
-                        year: 'numeric',
-                        hour: '2-digit',
-                        minute: '2-digit'
-                    })
-                    : 'N/A';
-                
+                const dataCurso = d.resultado ? formatarDataBrasilia(d.resultado.data_realizada, 'data') : '-';
+                const dataEmissao = d.created_at ? formatarDataBrasilia(d.created_at, 'completo') : 'N/A';
                 const tempoBadge = d.resultado ? getBadgeTempo(d.tempoConclusao) : '-';
 
                 return `
@@ -1498,7 +1229,6 @@
 
         // ================= GERENCIAMENTO DE TOKENS =================
 
-        // Gerar token aleatório
         function gerarTokenAleatorio() {
             const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
             let token = '';
@@ -1509,7 +1239,6 @@
             return token;
         }
 
-        // Gerar token para novo colaborador
         async function gerarToken() {
             const nome = document.getElementById('novo-nome').value.trim();
             const tokenResult = document.getElementById('token-result');
@@ -1520,7 +1249,6 @@
             }
 
             try {
-                // Verificar se o colaborador já existe
                 const { data: existing, error: checkError } = await supabaseClient
                     .from('colaboradores_tokens')
                     .select('nome')
@@ -1533,9 +1261,9 @@
                 }
 
                 const token = gerarTokenAleatorio();
-                const now = new Date().toISOString();
+                const dataBrasilia = getDataBrasiliaAtual();
+                const now = dataBrasilia.toISOString();
 
-                // Tentar inserir com created_at
                 const { data, error } = await supabaseClient
                     .from('colaboradores_tokens')
                     .insert([{ 
@@ -1548,18 +1276,10 @@
                     console.error('Erro detalhado:', error);
                     
                     if (error.message.includes('row-level security policy')) {
-                        mostrarAlerta(
-                            'Erro de permissão: A tabela "colaboradores_tokens" tem políticas de segurança (RLS) ativadas. ' +
-                            'Acesse a aba "Config" para ver as soluções.',
-                            'error'
-                        );
+                        mostrarAlerta('Erro de permissão: A tabela "colaboradores_tokens" tem políticas de segurança (RLS) ativadas.', 'error');
                     } else if (error.message.includes('does not exist')) {
-                        mostrarAlerta(
-                            'A tabela "colaboradores_tokens" não existe. Acesse a aba "Config" para criar a tabela.',
-                            'error'
-                        );
+                        mostrarAlerta('A tabela "colaboradores_tokens" não existe.', 'error');
                     } else if (error.message.includes('column "created_at"')) {
-                        // Se a coluna created_at não existir, tenta sem ela
                         const { data: retryData, error: retryError } = await supabaseClient
                             .from('colaboradores_tokens')
                             .insert([{ 
@@ -1572,7 +1292,6 @@
                             return;
                         }
                         
-                        // Sucesso sem created_at
                         document.getElementById('token-display').textContent = token;
                         tokenResult.style.display = 'block';
                         document.getElementById('novo-nome').value = '';
@@ -1589,12 +1308,12 @@
                     return;
                 }
 
-                // Sucesso
                 document.getElementById('token-display').textContent = token;
                 tokenResult.style.display = 'block';
                 document.getElementById('novo-nome').value = '';
                 
-                mostrarAlerta(`Token gerado com sucesso para ${nome}! Data de emissão: ${new Date(now).toLocaleString('pt-BR')}`, 'success');
+                const dataFormatada = formatarDataBrasilia(now, 'completo');
+                mostrarAlerta(`Token gerado com sucesso para ${nome}! Data de emissão: ${dataFormatada} (Brasília)`, 'success');
                 await carregarDados();
                 
                 setTimeout(fecharAlerta, 5000);
@@ -1606,7 +1325,6 @@
             }
         }
 
-        // Deletar colaborador
         async function deletarColaborador(nome, token) {
             if (!confirm(`Tem certeza que deseja excluir o colaborador "${nome}"?`)) {
                 return;
@@ -1621,11 +1339,7 @@
 
                 if (tokenError) {
                     if (tokenError.message.includes('row-level security policy')) {
-                        mostrarAlerta(
-                            'Erro de permissão: A tabela "colaboradores_tokens" tem políticas de segurança (RLS) ativadas. ' +
-                            'Acesse a aba "Config" para ver as soluções.',
-                            'error'
-                        );
+                        mostrarAlerta('Erro de permissão: A tabela "colaboradores_tokens" tem políticas de segurança (RLS) ativadas.', 'error');
                     } else {
                         mostrarAlerta('Erro ao deletar colaborador: ' + tokenError.message, 'error');
                     }
@@ -1670,13 +1384,7 @@
                     .maybeSingle();
 
                 const dataEmissao = tokenData && tokenData.created_at 
-                    ? new Date(tokenData.created_at).toLocaleString('pt-BR', {
-                        day: '2-digit',
-                        month: '2-digit',
-                        year: 'numeric',
-                        hour: '2-digit',
-                        minute: '2-digit'
-                    })
+                    ? formatarDataBrasilia(tokenData.created_at, 'completo')
                     : 'N/A';
 
                 const tempo = tokenData && tokenData.created_at 
@@ -1690,11 +1398,11 @@
                 titulo.textContent = `👤 ${nome}`;
                 conteudo.innerHTML = `
                     <p><strong><i class="fas fa-user"></i> Nome:</strong> ${resultado.nome}</p>
-                    <p><strong><i class="fas fa-key"></i> Data Emissão Token:</strong> ${dataEmissao}</p>
-                    ${tempo ? `<p><strong><i class="fas fa-hourglass-half"></i> Tempo de Conclusão:</strong> ${tempo}</p>` : '<p><strong><i class="fas fa-hourglass-half"></i> Tempo de Conclusão:</strong> N/A (Data de emissão não disponível)</p>'}
+                    <p><strong><i class="fas fa-key"></i> Data Emissão Token (Brasília):</strong> ${dataEmissao}</p>
+                    ${tempo ? `<p><strong><i class="fas fa-hourglass-half"></i> Tempo de Conclusão:</strong> ${tempo}</p>` : '<p><strong><i class="fas fa-hourglass-half"></i> Tempo de Conclusão:</strong> N/A</p>'}
                     <p><strong><i class="fas fa-check-circle" style="color: #28a745;"></i> Acertos:</strong> ${resultado.acertos} de 12</p>
                     <p><strong><i class="fas fa-times-circle" style="color: #dc3545;"></i> Erros:</strong> ${resultado.erros} de 12</p>
-                    <p><strong><i class="fas fa-calendar"></i> Data de Conclusão:</strong> ${new Date(resultado.data_realizada).toLocaleString('pt-BR')}</p>
+                    <p><strong><i class="fas fa-calendar"></i> Data de Conclusão (Brasília):</strong> ${formatarDataBrasilia(resultado.data_realizada, 'completo')}</p>
                     <p><strong><i class="fas fa-certificate" style="color: #f15a24;"></i> Status:</strong> <span class="badge-success">Certificado Emitido</span></p>
                     <hr style="margin: 10px 0;">
                     <p style="font-size: 0.75rem; color: #666;">
@@ -1710,7 +1418,6 @@
             }
         }
 
-        // Fechar modal
         function fecharModal() {
             document.getElementById('modal-detalhes').classList.remove('active');
             document.body.style.overflow = '';
@@ -1796,16 +1503,16 @@
                     month: '2-digit',
                     year: 'numeric',
                     hour: '2-digit',
-                    minute: '2-digit'
+                    minute: '2-digit',
+                    timeZone: 'America/Sao_Paulo'
                 });
-                doc.text(`Gerado em: ${dataAtual}`, pageWidth - margin, margin + 12, { align: 'right' });
+                doc.text(`Gerado em: ${dataAtual} (Horário de Brasília)`, pageWidth - margin, margin + 12, { align: 'right' });
                 
                 doc.setFont('helvetica', 'bold');
                 doc.setFontSize(11);
                 doc.setTextColor(50, 50, 50);
                 doc.text(`Total de Colaboradores Certificados: ${dadosRelatorio.length}`, margin, margin + 50);
                 
-                // Calcular tempo médio em dias
                 const tempos = dadosRelatorio
                     .map(d => d.tempoConclusao)
                     .filter(t => t !== null && t.includes('dias'));
@@ -1891,11 +1598,7 @@
                         doc.rect(margin, y, pageWidth - (margin * 2), rowHeight, 'F');
                     }
                     
-                    const dataFormatada = new Date(item.resultado.data_realizada).toLocaleDateString('pt-BR', {
-                        day: '2-digit',
-                        month: '2-digit',
-                        year: 'numeric'
-                    });
+                    const dataFormatada = formatarDataBrasilia(item.resultado.data_realizada, 'data');
                     
                     doc.text(item.nome, margin + 2, y + 6.5);
                     doc.text(`${item.resultado.acertos}/12`, margin + 57, y + 6.5);
@@ -1929,8 +1632,8 @@
 
         console.log('📊 Dashboard Administrativo carregado!');
         console.log('🔗 Conectado ao Supabase:', SUPABASE_URL);
+        console.log('🕐 Fuso horário: Brasília (UTC-3)');
         console.log('📱 Modo Mobile First ativado!');
-        console.log('⏱️ Monitoramento de tempo de conclusão ativado (em dias)!');
     </script>
 
 </body>
