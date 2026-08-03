@@ -11,6 +11,9 @@
     <!-- Biblioteca jsPDF para gerar PDF -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     
+    <!-- Biblioteca SheetJS para exportar Excel -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    
     <!-- Font Awesome para ícones -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
@@ -120,6 +123,33 @@
 
         .btn-pdf-report:active {
             transform: scale(0.95);
+        }
+
+        .btn-excel {
+            background: #28a745;
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            white-space: nowrap;
+            width: auto;
+            margin-top: 0;
+            min-height: 36px;
+        }
+
+        .btn-excel:active {
+            transform: scale(0.95);
+        }
+
+        .btn-excel:hover {
+            background: #218838;
         }
 
         .stats-grid {
@@ -461,6 +491,29 @@
             box-shadow: 0 0 0 3px rgba(241, 90, 36, 0.1);
         }
 
+        .form-group textarea {
+            width: 100%;
+            padding: 8px 10px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            min-height: 120px;
+            resize: vertical;
+            font-family: inherit;
+        }
+
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #f15a24;
+            box-shadow: 0 0 0 3px rgba(241, 90, 36, 0.1);
+        }
+
+        .form-group .helper-text {
+            font-size: 0.7rem;
+            color: #666;
+            margin-top: 4px;
+        }
+
         .token-display {
             font-family: 'Courier New', monospace;
             font-size: 0.9rem;
@@ -472,6 +525,81 @@
             text-align: center;
             font-weight: bold;
             letter-spacing: 0.5px;
+        }
+
+        .tokens-list {
+            max-height: 200px;
+            overflow-y: auto;
+            background: #f8f9fa;
+            border-radius: 6px;
+            padding: 8px;
+            margin-top: 8px;
+            border: 1px solid #e8e8e8;
+        }
+
+        .tokens-list .token-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 4px 8px;
+            border-bottom: 1px solid #eee;
+            font-size: 0.8rem;
+        }
+
+        .tokens-list .token-item:last-child {
+            border-bottom: none;
+        }
+
+        .tokens-list .token-item .nome {
+            font-weight: 600;
+            color: #333;
+        }
+
+        .tokens-list .token-item .email {
+            color: #666;
+            font-size: 0.7rem;
+        }
+
+        .tokens-list .token-item .token {
+            font-family: 'Courier New', monospace;
+            color: #f15a24;
+            font-weight: 600;
+        }
+
+        .btn-success-multi {
+            background: #28a745;
+            color: white;
+            border: none;
+            padding: 10px 14px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            min-height: 44px;
+            margin-top: 10px;
+        }
+
+        .btn-success-multi:active {
+            transform: scale(0.97);
+        }
+
+        .btn-success-multi:hover {
+            background: #218838;
+        }
+
+        .btn-group-gerar {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn-group-gerar .btn-primary,
+        .btn-group-gerar .btn-success-multi {
+            flex: 1;
         }
 
         .alert {
@@ -648,6 +776,7 @@
             .dashboard-header .subtitle { font-size: 0.85rem; }
             .btn-atualizar { font-size: 0.85rem; padding: 8px 20px; min-height: 40px; }
             .btn-pdf-report { font-size: 0.85rem; padding: 8px 20px; min-height: 40px; }
+            .btn-excel { font-size: 0.85rem; padding: 8px 20px; min-height: 40px; }
             table { font-size: 0.85rem; min-width: auto; }
             th, td { padding: 12px 16px; }
             .token-form { padding: 24px; max-width: 500px; }
@@ -656,6 +785,7 @@
             .btn-sm:hover { opacity: 0.85; }
             .btn-atualizar:hover { background: #d44b1b; }
             .btn-pdf-report:hover { background: #c82333; }
+            .btn-excel:hover { background: #218838; }
             .tab-btn:hover { background: #f0f0f0; color: #f15a24; }
             .modal { padding: 24px; }
         }
@@ -676,6 +806,7 @@
             .tab-btn.active:hover { background: #f15a24; color: white; }
             .btn-atualizar:hover { background: #f15a24; }
             .btn-pdf-report:hover { background: #dc3545; }
+            .btn-excel:hover { background: #28a745; }
         }
 
         @media (prefers-reduced-motion: reduce) {
@@ -721,6 +852,10 @@
                     Dashboard
                 </h1>
                 <div class="header-actions">
+                    <button class="btn-excel" onclick="exportarExcel()">
+                        <i class="fas fa-file-excel"></i> 
+                        <span class="hide-mobile">Exportar Excel</span>
+                    </button>
                     <button class="btn-pdf-report" onclick="gerarRelatorioPDF()">
                         <i class="fas fa-file-pdf"></i> 
                         <span class="hide-mobile">Relatório PDF</span>
@@ -807,26 +942,48 @@
 
         <div class="tab-content" id="tab-tokens">
             <div class="token-form">
-                <h3><i class="fas fa-user-plus"></i> Cadastrar Colaborador</h3>
+                <h3><i class="fas fa-user-plus"></i> Cadastrar Colaborador Individual</h3>
                 
                 <div class="form-group">
                     <label for="novo-nome">Nome do Colaborador</label>
                     <input type="text" id="novo-nome" placeholder="Ex: Maria Oliveira" autocomplete="off">
                 </div>
+
+                <div class="form-group">
+                    <label for="novo-email">E-mail do Colaborador</label>
+                    <input type="email" id="novo-email" placeholder="Ex: maria.oliveira@email.com" autocomplete="off">
+                </div>
                 
                 <button class="btn-primary" onclick="gerarToken()">
-                    <i class="fas fa-key"></i> Gerar Token de Acesso
+                    <i class="fas fa-key"></i> Gerar Token Individual
                 </button>
+
+                <hr style="margin: 16px 0; border-color: #e8e8e8;">
+
+                <!-- Modo múltiplo -->
+                <h3 style="color: #28a745; margin-bottom: 10px; font-size: 0.9rem;">
+                    <i class="fas fa-users"></i> Gerar Múltiplos Tokens
+                </h3>
                 
-                <div id="token-result" style="display: none; margin-top: 12px;">
-                    <div style="background: #d4edda; padding: 10px; border-radius: 6px; border: 1px solid #c3e6cb;">
-                        <p style="font-weight: 600; color: #155724; margin-bottom: 4px; font-size: 0.85rem;">
-                            <i class="fas fa-check-circle"></i> Token gerado com sucesso!
+                <div class="form-group">
+                    <label for="nomes-multiplos">Nomes e E-mails (um por linha)</label>
+                    <textarea id="nomes-multiplos" placeholder="João Silva, joao.silva@email.com&#10;Maria Oliveira, maria.oliveira@email.com&#10;Carlos Santos, carlos.santos@email.com"></textarea>
+                    <div class="helper-text">Digite <strong>Nome, Email</strong> por linha (separados por vírgula).</div>
+                </div>
+                
+                <button class="btn-success-multi" onclick="gerarTokensMultiplos()">
+                    <i class="fas fa-users"></i> Gerar Tokens em Massa
+                </button>
+
+                <!-- Resultado dos tokens gerados -->
+                <div id="multi-token-result" style="display: none; margin-top: 16px;">
+                    <div style="background: #d4edda; padding: 12px; border-radius: 8px; border: 1px solid #c3e6cb;">
+                        <p style="font-weight: 600; color: #155724; margin-bottom: 8px; font-size: 0.85rem;">
+                            <i class="fas fa-check-circle"></i> Tokens gerados com sucesso!
                         </p>
-                        <div class="token-display" id="token-display">XXXX-XXXX-XXXX</div>
-                        <p style="font-size: 0.7rem; color: #155724; margin-top: 4px;">
-                            <i class="fas fa-info-circle"></i> Informe este token ao colaborador para acesso ao treinamento.
-                        </p>
+                        <div class="tokens-list" id="tokens-list">
+                            <!-- Tokens serão inseridos aqui -->
+                        </div>
                     </div>
                 </div>
             </div>
@@ -840,6 +997,7 @@
                         <thead>
                             <tr>
                                 <th>Nome</th>
+                                <th>E-mail</th>
                                 <th>Token</th>
                                 <th>Data Emissão</th>
                                 <th>Ação</th>
@@ -847,7 +1005,7 @@
                         </thead>
                         <tbody id="colaboradores-tbody">
                             <tr>
-                                <td colspan="4" class="text-center text-muted" style="padding: 16px;">
+                                <td colspan="5" class="text-center text-muted" style="padding: 16px;">
                                     <i class="fas fa-info-circle"></i> Nenhum colaborador cadastrado.
                                 </td>
                             </tr>
@@ -863,6 +1021,7 @@
                     <thead>
                         <tr>
                             <th>Nome</th>
+                            <th>E-mail</th>
                             <th>Token</th>
                             <th>Data Emissão</th>
                             <th>Status</th>
@@ -873,7 +1032,7 @@
                     </thead>
                     <tbody id="todos-colaboradores-tbody">
                         <tr>
-                            <td colspan="7" class="text-center text-muted" style="padding: 16px;">
+                            <td colspan="8" class="text-center text-muted" style="padding: 16px;">
                                 <i class="fas fa-info-circle"></i> Nenhum colaborador cadastrado.
                             </td>
                         </tr>
@@ -904,57 +1063,128 @@
             supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
         }
 
-        // ================= FUNÇÃO PARA CALCULAR TEMPO (CORRIGIDA) =================
+        // ================= FUNÇÃO PARA GERAR TOKEN =================
 
- function calcularTempoConclusao(dataEmissao, dataConclusao) {
-    if (!dataEmissao || !dataConclusao) return null;
-    
-    try {
-
-        
-        // Converter ambas para Date (sem ajuste de fuso)
-        const inicio = new Date(dataEmissao);
-        const fim = new Date(dataConclusao);
-        
-        // Calcular diferença em milissegundos
-        const diffMs = fim.getTime() - inicio.getTime();
-        
-        // Se for negativo, token emitido depois
-        
-        
-        // Calcular em minutos
-        const diffMin = Math.floor(diffMs / (1000 * 60));
-        
-        if (diffMin < 1) return 'Menos de 1 minuto';
-        if (diffMin < 60) return `${diffMin}min`;
-        
-        const diffHoras = Math.floor(diffMin / 60);
-        const minutosRestantes = diffMin % 60;
-        
-        if (diffHoras < 24) {
-            return minutosRestantes > 0 ? `${diffHoras}h ${minutosRestantes}min` : `${diffHoras}h`;
+        function gerarTokenAleatorio() {
+            const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+            let token = '';
+            for (let i = 0; i < 12; i++) {
+                if (i > 0 && i % 4 === 0) token += '-';
+                token += chars.charAt(Math.floor(Math.random() * chars.length));
+            }
+            return token;
         }
-        
-        const diffDias = Math.floor(diffHoras / 24);
-        const horasRestantes = diffHoras % 24;
-        
-        return horasRestantes > 0 ? `${diffDias}d ${horasRestantes}h` : `${diffDias}d`;
-        
-    } catch (err) {
-        console.error('❌ Erro ao calcular tempo:', err);
-        return null;
-    }
-}
+
+        // ================= FUNÇÕES DE FORMATAÇÃO DE DATA =================
+
+        function formatarDataBrasilia(dataUTC, formato = 'completo') {
+            if (!dataUTC) return 'N/A';
+            
+            try {
+                const data = new Date(dataUTC);
+                data.setHours(data.getHours() - 3);
+                
+                if (formato === 'data') {
+                    return data.toLocaleDateString('pt-BR', {
+                        day: '2-digit',
+                        month: '2-digit',
+                        year: 'numeric'
+                    });
+                } else if (formato === 'completo') {
+                    return data.toLocaleString('pt-BR', {
+                        day: '2-digit',
+                        month: '2-digit',
+                        year: 'numeric',
+                        hour: '2-digit',
+                        minute: '2-digit'
+                    });
+                }
+                return data.toLocaleString('pt-BR');
+            } catch (err) {
+                console.error('Erro ao formatar data:', err);
+                return 'N/A';
+            }
+        }
+
+        function formatarDataUTC(dataUTC, formato = 'completo') {
+            if (!dataUTC) return 'N/A';
+            
+            try {
+                const data = new Date(dataUTC);
+                
+                if (formato === 'data') {
+                    return data.toLocaleDateString('pt-BR', {
+                        day: '2-digit',
+                        month: '2-digit',
+                        year: 'numeric'
+                    });
+                } else if (formato === 'completo') {
+                    return data.toLocaleString('pt-BR', {
+                        day: '2-digit',
+                        month: '2-digit',
+                        year: 'numeric',
+                        hour: '2-digit',
+                        minute: '2-digit'
+                    });
+                }
+                return data.toLocaleString('pt-BR');
+            } catch (err) {
+                console.error('Erro ao formatar data:', err);
+                return 'N/A';
+            }
+        }
+
+        // ================= FUNÇÃO PARA CALCULAR TEMPO =================
+
+        function calcularTempoConclusao(dataEmissao, dataConclusao) {
+            if (!dataEmissao || !dataConclusao) return null;
+            
+            try {
+                const inicio = new Date(dataEmissao);
+                const fim = new Date(dataConclusao);
+                
+                const diffMs = fim.getTime() - inicio.getTime();
+                
+                if (diffMs < 0) {
+                    const diffAbs = Math.abs(diffMs);
+                    const diffMin = Math.floor(diffAbs / (1000 * 60));
+                    if (diffMin < 60) return `${diffMin}min após conclusão`;
+                    const diffHoras = Math.floor(diffMin / 60);
+                    if (diffHoras < 24) return `${diffHoras}h após conclusão`;
+                    const diffDias = Math.floor(diffHoras / 24);
+                    return `${diffDias}d após conclusão`;
+                }
+                
+                const diffMin = Math.floor(diffMs / (1000 * 60));
+                
+                if (diffMin < 1) return 'Menos de 1 minuto';
+                if (diffMin < 60) return `${diffMin}min`;
+                
+                const diffHoras = Math.floor(diffMin / 60);
+                const minutosRestantes = diffMin % 60;
+                
+                if (diffHoras < 24) {
+                    return minutosRestantes > 0 ? `${diffHoras}h ${minutosRestantes}min` : `${diffHoras}h`;
+                }
+                
+                const diffDias = Math.floor(diffHoras / 24);
+                const horasRestantes = diffHoras % 24;
+                
+                return horasRestantes > 0 ? `${diffDias}d ${horasRestantes}h` : `${diffDias}d`;
+                
+            } catch (err) {
+                console.error('❌ Erro ao calcular tempo:', err);
+                return null;
+            }
+        }
 
         function getBadgeTempo(tempoStr) {
             if (!tempoStr) return '<span class="badge-pending">N/A</span>';
             
-            // Verificar se é "após conclusão"
             if (tempoStr.includes('após conclusão')) {
                 return `<span class="badge-erro-token">⚠️ ${tempoStr}</span>`;
             }
             
-            // Extrair número de dias
             let dias = 0;
             const matchDias = tempoStr.match(/(\d+)\s*d/);
             if (matchDias) dias = parseInt(matchDias[1]);
@@ -975,44 +1205,6 @@
         // Variáveis para armazenar os dados
         let dadosRelatorio = [];
         let dadosCompletos = [];
-
-        // ================= FUNÇÕES DE FUSO HORÁRIO =================
-
-        function formatarDataBrasilia(dataUTC, formato = 'completo') {
-            if (!dataUTC) return 'N/A';
-            
-            try {
-                const data = new Date(dataUTC);
-                // Ajustar para Brasília (UTC-3)
-                data.setHours(data.getHours() - 3);
-                
-                if (formato === 'data') {
-                    return data.toLocaleDateString('pt-BR', {
-                        day: '2-digit',
-                        month: '2-digit',
-                        year: 'numeric'
-                    });
-                } else if (formato === 'completo') {
-                    return data.toLocaleString('pt-BR', {
-                        day: '2-digit',
-                        month: '2-digit',
-                        year: 'numeric',
-                        hour: '2-digit',
-                        minute: '2-digit'
-                    });
-                }
-                return data.toLocaleString('pt-BR');
-            } catch (err) {
-                return 'N/A';
-            }
-        }
-
-        function getDataBrasiliaAtual() {
-            const now = new Date();
-            const brasiliaOffset = -3 * 60;
-            const utc = now.getTime() + (now.getTimezoneOffset() * 60000);
-            return new Date(utc + (brasiliaOffset * 60000));
-        }
 
         // ================= FUNÇÕES PRINCIPAIS =================
 
@@ -1098,7 +1290,6 @@
                 media = Math.round((soma / (certificados.length * 12)) * 100);
             }
 
-            // Calcular tempo médio apenas com valores que contêm "dias" (exclui "após conclusão")
             const tempos = certificados
                 .map(d => d.tempoConclusao)
                 .filter(t => t !== null && t.includes('dias') && !t.includes('após conclusão'));
@@ -1134,7 +1325,6 @@
                 return;
             }
 
-            // Ordenar: primeiro os que têm tempo válido, depois os que são "após conclusão"
             certificados.sort((a, b) => {
                 const tA = a.tempoConclusao ? (a.tempoConclusao.includes('após conclusão') ? 9999 : parseInt(a.tempoConclusao) || 9999) : 9999;
                 const tB = b.tempoConclusao ? (b.tempoConclusao.includes('após conclusão') ? 9999 : parseInt(b.tempoConclusao) || 9999) : 9999;
@@ -1143,7 +1333,7 @@
 
             tbody.innerHTML = certificados.map(d => {
                 const tempoBadge = getBadgeTempo(d.tempoConclusao);
-                const dataFormatada = formatarDataBrasilia(d.resultado.data_realizada, 'data');
+                const dataFormatada = formatarDataUTC(d.resultado.data_realizada, 'data');
                 return `
                     <tr>
                         <td><strong>${d.nome}</strong></td>
@@ -1165,7 +1355,7 @@
             const tbody = document.getElementById('colaboradores-tbody');
 
             if (colaboradores.length === 0) {
-                tbody.innerHTML = `<tr><td colspan="4" class="text-center text-muted" style="padding: 16px;">
+                tbody.innerHTML = `<tr><td colspan="5" class="text-center text-muted" style="padding: 16px;">
                     <i class="fas fa-info-circle"></i> Nenhum colaborador cadastrado.
                 </td></tr>`;
                 return;
@@ -1173,10 +1363,12 @@
 
             tbody.innerHTML = colaboradores.map(c => {
                 const dataEmissao = c.created_at ? formatarDataBrasilia(c.created_at, 'completo') : 'N/A';
+                const email = c.email || 'N/A';
                 
                 return `
                     <tr>
                         <td><strong>${c.nome}</strong></td>
+                        <td>${email}</td>
                         <td><code>${c.token}</code></td>
                         <td><span class="badge-token-date">${dataEmissao}</span></td>
                         <td>
@@ -1193,13 +1385,12 @@
             const tbody = document.getElementById('todos-colaboradores-tbody');
 
             if (dados.length === 0) {
-                tbody.innerHTML = `<tr><td colspan="7" class="text-center text-muted" style="padding: 16px;">
+                tbody.innerHTML = `<tr><td colspan="8" class="text-center text-muted" style="padding: 16px;">
                     <i class="fas fa-info-circle"></i> Nenhum colaborador cadastrado.
                 </td></tr>`;
                 return;
             }
 
-            // Ordenar: primeiro os que têm tempo válido, depois os que são "após conclusão"
             dados.sort((a, b) => {
                 if (a.resultado && b.resultado) {
                     const tA = a.tempoConclusao ? (a.tempoConclusao.includes('após conclusão') ? 9999 : parseInt(a.tempoConclusao) || 9999) : 9999;
@@ -1216,13 +1407,15 @@
                     ? `<span class="badge-success"><i class="fas fa-check"></i> Certificado</span>`
                     : `<span class="badge-pending"><i class="fas fa-clock"></i> Pendente</span>`;
                 
-                const dataCurso = d.resultado ? formatarDataBrasilia(d.resultado.data_realizada, 'data') : '-';
+                const dataCurso = d.resultado ? formatarDataUTC(d.resultado.data_realizada, 'data') : '-';
                 const dataEmissao = d.created_at ? formatarDataBrasilia(d.created_at, 'completo') : 'N/A';
                 const tempoBadge = d.resultado ? getBadgeTempo(d.tempoConclusao) : '-';
+                const email = d.email || 'N/A';
 
                 return `
                     <tr>
                         <td><strong>${d.nome}</strong></td>
+                        <td>${email}</td>
                         <td><code>${d.token}</code></td>
                         <td><span class="badge-token-date">${dataEmissao}</span></td>
                         <td>${status}</td>
@@ -1243,24 +1436,26 @@
             }).join('');
         }
 
-        // ================= GERENCIAMENTO DE TOKENS =================
-
-        function gerarTokenAleatorio() {
-            const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
-            let token = '';
-            for (let i = 0; i < 12; i++) {
-                if (i > 0 && i % 4 === 0) token += '-';
-                token += chars.charAt(Math.floor(Math.random() * chars.length));
-            }
-            return token;
-        }
+        // ================= GERENCIAMENTO DE TOKENS - INDIVIDUAL =================
 
         async function gerarToken() {
             const nome = document.getElementById('novo-nome').value.trim();
+            const email = document.getElementById('novo-email').value.trim();
             const tokenResult = document.getElementById('token-result');
             
             if (!nome) {
                 mostrarAlerta('Por favor, informe o nome do colaborador.', 'error');
+                return;
+            }
+
+            if (!email) {
+                mostrarAlerta('Por favor, informe o e-mail do colaborador.', 'error');
+                return;
+            }
+
+            // Validação simples de email
+            if (!email.includes('@') || !email.includes('.')) {
+                mostrarAlerta('Por favor, informe um e-mail válido.', 'error');
                 return;
             }
 
@@ -1277,15 +1472,15 @@
                 }
 
                 const token = gerarTokenAleatorio();
-                const dataBrasilia = getDataBrasiliaAtual();
-                const now = dataBrasilia.toISOString();
+                const nowUTC = new Date().toISOString();
 
                 const { data, error } = await supabaseClient
                     .from('colaboradores_tokens')
                     .insert([{ 
                         nome: nome, 
+                        email: email,
                         token: token,
-                        created_at: now
+                        created_at: nowUTC
                     }]);
 
                 if (error) {
@@ -1295,29 +1490,8 @@
                         mostrarAlerta('Erro de permissão: A tabela "colaboradores_tokens" tem políticas de segurança (RLS) ativadas.', 'error');
                     } else if (error.message.includes('does not exist')) {
                         mostrarAlerta('A tabela "colaboradores_tokens" não existe.', 'error');
-                    } else if (error.message.includes('column "created_at"')) {
-                        const { data: retryData, error: retryError } = await supabaseClient
-                            .from('colaboradores_tokens')
-                            .insert([{ 
-                                nome: nome, 
-                                token: token
-                            }]);
-                        
-                        if (retryError) {
-                            mostrarAlerta('Erro ao gerar token: ' + retryError.message, 'error');
-                            return;
-                        }
-                        
-                        document.getElementById('token-display').textContent = token;
-                        tokenResult.style.display = 'block';
-                        document.getElementById('novo-nome').value = '';
-                        
-                        mostrarAlerta(`Token gerado com sucesso para ${nome}! (Sem data de emissão)`, 'success');
-                        await carregarDados();
-                        
-                        setTimeout(fecharAlerta, 5000);
-                        tokenResult.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                        return;
+                    } else if (error.message.includes('column "email"')) {
+                        mostrarAlerta('A coluna "email" não existe na tabela. Execute: ALTER TABLE colaboradores_tokens ADD COLUMN email TEXT;', 'error');
                     } else {
                         mostrarAlerta('Erro ao gerar token: ' + error.message, 'error');
                     }
@@ -1327,8 +1501,9 @@
                 document.getElementById('token-display').textContent = token;
                 tokenResult.style.display = 'block';
                 document.getElementById('novo-nome').value = '';
+                document.getElementById('novo-email').value = '';
                 
-                const dataFormatada = formatarDataBrasilia(now, 'completo');
+                const dataFormatada = formatarDataBrasilia(nowUTC, 'completo');
                 mostrarAlerta(`Token gerado com sucesso para ${nome}! Data de emissão: ${dataFormatada} (Brasília)`, 'success');
                 await carregarDados();
                 
@@ -1339,6 +1514,146 @@
                 console.error('Erro:', err);
                 mostrarAlerta('Erro de conexão: ' + err.message, 'error');
             }
+        }
+
+        // ================= GERENCIAMENTO DE TOKENS - MÚLTIPLOS =================
+
+        async function gerarTokensMultiplos() {
+            const textarea = document.getElementById('nomes-multiplos');
+            const linhas = textarea.value.split('\n')
+                .map(l => l.trim())
+                .filter(l => l.length > 0);
+
+            if (linhas.length === 0) {
+                mostrarAlerta('Por favor, digite pelo menos um nome e email.', 'error');
+                return;
+            }
+
+            // Parse das linhas: "Nome, email"
+            const usuarios = [];
+            let errosParse = [];
+
+            linhas.forEach((linha, index) => {
+                const partes = linha.split(',').map(p => p.trim());
+                if (partes.length < 2) {
+                    errosParse.push(`Linha ${index + 1}: formato inválido (use "Nome, email")`);
+                } else {
+                    const nome = partes[0];
+                    const email = partes[1];
+                    if (!nome || !email || !email.includes('@')) {
+                        errosParse.push(`Linha ${index + 1}: nome ou email inválido`);
+                    } else {
+                        usuarios.push({ nome, email });
+                    }
+                }
+            });
+
+            if (errosParse.length > 0) {
+                mostrarAlerta(`Erros de formato:\n${errosParse.join('\n')}`, 'error');
+                return;
+            }
+
+            if (usuarios.length === 0) {
+                mostrarAlerta('Nenhum usuário válido encontrado.', 'error');
+                return;
+            }
+
+            // Verificar duplicados de nome
+            const nomes = usuarios.map(u => u.nome);
+            const nomesUnicos = [...new Set(nomes)];
+            if (nomesUnicos.length !== nomes.length) {
+                mostrarAlerta('Existem nomes duplicados. Remova as duplicatas.', 'error');
+                return;
+            }
+
+            // Verificar se algum já existe
+            let nomesExistentes = [];
+            for (const u of usuarios) {
+                const { data: existing, error } = await supabaseClient
+                    .from('colaboradores_tokens')
+                    .select('nome')
+                    .eq('nome', u.nome)
+                    .maybeSingle();
+                
+                if (existing) {
+                    nomesExistentes.push(u.nome);
+                }
+            }
+
+            if (nomesExistentes.length > 0) {
+                mostrarAlerta(`Os seguintes nomes já estão cadastrados: ${nomesExistentes.join(', ')}`, 'error');
+                return;
+            }
+
+            // Gerar tokens
+            const resultados = [];
+            const nowUTC = new Date().toISOString();
+
+            for (const u of usuarios) {
+                const token = gerarTokenAleatorio();
+                
+                const { data, error } = await supabaseClient
+                    .from('colaboradores_tokens')
+                    .insert([{ 
+                        nome: u.nome, 
+                        email: u.email,
+                        token: token,
+                        created_at: nowUTC
+                    }]);
+
+                if (error) {
+                    console.error(`Erro ao gerar token para ${u.nome}:`, error);
+                    resultados.push({ nome: u.nome, email: u.email, token: null, erro: error.message });
+                } else {
+                    resultados.push({ nome: u.nome, email: u.email, token, erro: null });
+                }
+            }
+
+            // Exibir resultados
+            const tokensList = document.getElementById('tokens-list');
+            const multiResult = document.getElementById('multi-token-result');
+
+            let html = '';
+            let sucessos = 0;
+            let erros = 0;
+
+            resultados.forEach(r => {
+                if (r.erro) {
+                    html += `<div class="token-item" style="color: #dc3545;">
+                        <span class="nome">❌ ${r.nome}</span>
+                        <span>Erro: ${r.erro}</span>
+                    </div>`;
+                    erros++;
+                } else {
+                    html += `<div class="token-item">
+                        <span class="nome">${r.nome}</span>
+                        <span class="email">${r.email}</span>
+                        <span class="token">${r.token}</span>
+                    </div>`;
+                    sucessos++;
+                }
+            });
+
+            const resumo = `<div style="padding: 8px; background: #e9ecef; border-radius: 4px; margin-bottom: 8px; font-size: 0.85rem; text-align: center;">
+                ${sucessos} token(s) gerado(s) com sucesso ${erros > 0 ? `| ${erros} erro(s)` : ''}
+                ${sucessos > 0 ? `<br><span style="font-size: 0.75rem; color: #28a745;">✅ Tokens válidos para acesso ao treinamento</span>` : ''}
+            </div>`;
+
+            tokensList.innerHTML = resumo + html;
+            multiResult.style.display = 'block';
+            
+            textarea.value = '';
+
+            if (erros === 0) {
+                mostrarAlerta(`${sucessos} token(s) gerado(s) com sucesso!`, 'success');
+            } else {
+                mostrarAlerta(`${sucessos} token(s) gerado(s) e ${erros} erro(s). Verifique os detalhes abaixo.`, 'error');
+            }
+
+            await carregarDados();
+            multiResult.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            
+            setTimeout(fecharAlerta, 5000);
         }
 
         async function deletarColaborador(nome, token) {
@@ -1395,7 +1710,7 @@
 
                 const { data: tokenData, error: tokenError } = await supabaseClient
                     .from('colaboradores_tokens')
-                    .select('created_at')
+                    .select('created_at, email')
                     .eq('nome', nome)
                     .maybeSingle();
 
@@ -1414,11 +1729,12 @@
                 titulo.textContent = `👤 ${nome}`;
                 conteudo.innerHTML = `
                     <p><strong><i class="fas fa-user"></i> Nome:</strong> ${resultado.nome}</p>
+                    <p><strong><i class="fas fa-envelope"></i> E-mail:</strong> ${tokenData?.email || 'N/A'}</p>
                     <p><strong><i class="fas fa-key"></i> Data Emissão Token (Brasília):</strong> ${dataEmissao}</p>
                     ${tempo ? `<p><strong><i class="fas fa-hourglass-half"></i> Tempo de Conclusão:</strong> ${tempo}</p>` : '<p><strong><i class="fas fa-hourglass-half"></i> Tempo de Conclusão:</strong> N/A</p>'}
                     <p><strong><i class="fas fa-check-circle" style="color: #28a745;"></i> Acertos:</strong> ${resultado.acertos} de 12</p>
                     <p><strong><i class="fas fa-times-circle" style="color: #dc3545;"></i> Erros:</strong> ${resultado.erros} de 12</p>
-                    <p><strong><i class="fas fa-calendar"></i> Data de Conclusão (Brasília):</strong> ${formatarDataBrasilia(resultado.data_realizada, 'completo')}</p>
+                    <p><strong><i class="fas fa-calendar"></i> Data de Conclusão (UTC):</strong> ${formatarDataUTC(resultado.data_realizada, 'completo')}</p>
                     <p><strong><i class="fas fa-certificate" style="color: #f15a24;"></i> Status:</strong> <span class="badge-success">Certificado Emitido</span></p>
                     <hr style="margin: 10px 0;">
                     <p style="font-size: 0.75rem; color: #666;">
@@ -1470,6 +1786,61 @@
             const alert = document.getElementById('alert');
             alert.className = 'alert';
             alert.textContent = '';
+        }
+
+        // ================= FUNÇÃO PARA EXPORTAR EXCEL =================
+
+        function exportarExcel() {
+            if (dadosCompletos.length === 0) {
+                mostrarAlerta('Não há dados para exportar.', 'error');
+                return;
+            }
+
+            try {
+                // Preparar dados
+                const dados = dadosCompletos.map(d => ({
+                    'Nome': d.nome,
+                    'E-mail': d.email || 'N/A',
+                    'Token': d.token,
+                    'Data Emissão': d.created_at ? formatarDataBrasilia(d.created_at, 'completo') : 'N/A',
+                    'Status': d.resultado && d.resultado.certificado === 'Sim' ? 'Certificado' : 'Pendente',
+                    'Data Curso': d.resultado ? formatarDataUTC(d.resultado.data_realizada, 'completo') : '-',
+                    'Acertos': d.resultado ? `${d.resultado.acertos}/12` : '-',
+                    'Erros': d.resultado ? `${d.resultado.erros}/12` : '-',
+                    'Tempo de Conclusão': d.tempoConclusao || '-'
+                }));
+
+                // Criar workbook
+                const wb = XLSX.utils.book_new();
+                const ws = XLSX.utils.json_to_sheet(dados);
+                
+                // Ajustar largura das colunas
+                const colWidths = [
+                    { wch: 25 }, // Nome
+                    { wch: 30 }, // E-mail
+                    { wch: 18 }, // Token
+                    { wch: 22 }, // Data Emissão
+                    { wch: 15 }, // Status
+                    { wch: 22 }, // Data Curso
+                    { wch: 12 }, // Acertos
+                    { wch: 12 }, // Erros
+                    { wch: 18 }  // Tempo
+                ];
+                ws['!cols'] = colWidths;
+
+                XLSX.utils.book_append_sheet(wb, ws, 'Colaboradores');
+                
+                // Gerar arquivo
+                const dataAtual = new Date().toISOString().slice(0,10);
+                XLSX.writeFile(wb, `Colaboradores_GOL_${dataAtual}.xlsx`);
+                
+                mostrarAlerta(`Excel exportado com sucesso! ${dados.length} registros.`, 'success');
+                setTimeout(fecharAlerta, 4000);
+
+            } catch (err) {
+                console.error('Erro ao exportar Excel:', err);
+                mostrarAlerta('Erro ao exportar Excel: ' + err.message, 'error');
+            }
         }
 
         // ================= FUNÇÃO PARA GERAR RELATÓRIO PDF =================
@@ -1529,7 +1900,6 @@
                 doc.setTextColor(50, 50, 50);
                 doc.text(`Total de Colaboradores Certificados: ${dadosRelatorio.length}`, margin, margin + 50);
                 
-                // Calcular tempo médio (excluindo "após conclusão")
                 const tempos = dadosRelatorio
                     .map(d => d.tempoConclusao)
                     .filter(t => t !== null && t.includes('dias') && !t.includes('após conclusão'));
@@ -1615,7 +1985,7 @@
                         doc.rect(margin, y, pageWidth - (margin * 2), rowHeight, 'F');
                     }
                     
-                    const dataFormatada = formatarDataBrasilia(item.resultado.data_realizada, 'data');
+                    const dataFormatada = formatarDataUTC(item.resultado.data_realizada, 'data');
                     
                     doc.text(item.nome, margin + 2, y + 6.5);
                     doc.text(`${item.resultado.acertos}/12`, margin + 57, y + 6.5);
@@ -1652,6 +2022,9 @@
         console.log('🕐 Fuso horário: Brasília (UTC-3)');
         console.log('📱 Modo Mobile First ativado!');
         console.log('⚡ Corrigido: cálculo de tempo com detecção de token após conclusão!');
+        console.log('👥 Modo múltiplo: Gerar vários tokens de uma vez!');
+        console.log('📧 Cadastro com Nome + E-mail!');
+        console.log('📊 Exportar Excel disponível!');
     </script>
 
 </body>
